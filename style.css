@@ -1,16 +1,18 @@
-
 .container {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     width: 640px;
     height: 640px;
     border: 2px solid black;
   }
   
-  
   .square {
+    width: 40px;
+    height: 40px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
+    background-color: #f0f0f0;
+  
+    /* Important fix */
+    box-sizing: border-box;
   }
   
