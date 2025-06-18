@@ -1,17 +1,11 @@
 const container = document.getElementById("container");
 const resizeBtn = document.getElementById("resizeBtn");
 
-const CONTAINER_SIZE = 500; // total pixel space
+const CONTAINER_SIZE = 500;
 
-// Create the grid with a given number of squares per side
+// Create grid
 function createGrid(size) {
-  // Clear old grid
   container.innerHTML = "";
-
-  // Set container size
-  container.style.width = `${CONTAINER_SIZE}px`;
-  container.style.height = `${CONTAINER_SIZE}px`;
-
   const squareSize = CONTAINER_SIZE / size;
 
   for (let i = 0; i < size * size; i++) {
@@ -20,18 +14,17 @@ function createGrid(size) {
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
 
-    // Hover effect
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "#000";
+      square.style.backgroundColor = "#00ffe0";
     });
 
     container.appendChild(square);
   }
 }
 
-// Button click handler
+// Resize grid button
 resizeBtn.addEventListener("click", () => {
-  let size = prompt("Enter grid size (max 100):");
+  let size = prompt("Enter grid size (1–100):");
   size = parseInt(size);
 
   if (isNaN(size) || size < 1 || size > 100) {
@@ -42,5 +35,5 @@ resizeBtn.addEventListener("click", () => {
   createGrid(size);
 });
 
-// Create default 16x16 grid on load
+// Default grid
 createGrid(16);
